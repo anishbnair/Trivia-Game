@@ -15,6 +15,46 @@
 
 <body>
 
+    <div class="header-container">
+        <header>HARRY POTTER TRIVIA GAME</header>
+    </div>
+
+    <div class="main-container">
+        <section id="startPage">
+            <button id="start">Start</button>
+        </section>
+        <section id="questionPage">
+            <div class="timer">Time Remaining:
+                <span class="time"></span>
+            </div>
+            <div id="question"></div>
+            <ol id="selectable" class="answerChoices"></ol>
+        </section>
+        <section id="answerPage">
+            <div class="timer">Time Remaining:
+                <span class="time"></span>
+            </div>
+            <div id="answerAssessment"></div>
+            <div id="correctAnswerInfo"></div>
+        </section>
+        <section id="resultsPage">
+            <div class="timer">Time Remaining:
+                <span class="time"></span>
+            </div>
+            <div id="summary">All done, here's how you did!</div>
+            <div class="results">Correct Answers:
+                <span id="correctAnswers"></span>
+            </div>
+            <div class="results">Incorrect Answers:
+                <span id="incorrectAnswers"></span>
+            </div>
+            <div class="results">Unanswered:
+                <span id="unanswered"></span>
+            </div>
+            <button id="restart">Start Over?</button>
+        </section>
+    </div>
+
 
     <!--Linking JQuery Library -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
