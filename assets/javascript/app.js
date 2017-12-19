@@ -36,7 +36,7 @@ var triviaQuestions = {
     },
 }
 
-var section = ""; 
+var sectionName = ""; 
 var activateStart = $("#startSection");
 var activateQuestion = $("#questionSection");
 var activateAnswers = $("#answerSection");
@@ -46,15 +46,21 @@ var activateResults = $("#resultsSection");
 // Functions
 //==================================================================================================================================
 // Function to display only one active section at a time
-function activeSection(section) {
-    //hide all sections 
+function activateSection(sectionName) {
+    //Hide all sections 
     activateStart.hide();
     activateQuestion.hide();
     activateAnswers.hide();
     activateResults.hide(); 
-    // activate only one section
-    if (section) {
-        section.show(); 
+    // activate only the sectionName section 
+    if (sectionName) {
+        sectionName.show(); 
     }
 }
-//activeSection(activateStart)
+
+//==================================================================================================================================
+$(document).ready(function() {
+    activateSection(activateStart)
+
+})
+//==================================================================================================================================
