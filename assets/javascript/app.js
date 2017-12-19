@@ -32,11 +32,14 @@ var activateResults = $("#resultsSection");
 var index = 0;
 var questionID; 
 
+var timer = 15; 
+
+
 // Object to store questions, answer options and correct answer 
 var triviaQuestions = {
     q1: {
         question: "Who played Lord Voldemort in the movies?",
-        answers: ["JEREMY IRONS", "TOM HIDDLESTON", "GARY OLDMAN", "RALPH FIENES"],
+        answers: ["JEREMY IRONS", "TOM HIDDLESTON", "GARY OLDMAN", "RALPH FIENNES"],
         correctAnswer: "RALPH FIENES",
     },
     q2: {
@@ -90,7 +93,20 @@ function startClickEvent() {
     })
 }
 
-// Function to start timer 
+
+// Function to start timer when questions display on the screen 
+function startTimer() {
+	timeIntervalID = setInterval(displayTimer, 1000);
+};
+
+// Function to decrement time when questions display on the screen 
+function displayTimer() {
+    timer--;
+    $(".time").html(timer);
+    if (timer === 0) {
+        clearInterval(timeIntervalID);
+    }
+}
 
 
 //==================================================================================================================================
@@ -99,6 +115,8 @@ $(document).ready(function () {
     activateSection(activateStart);
     // Calls start click even function 
     startClickEvent();
+
+    startTimer(); 
 
 })
 //==================================================================================================================================
