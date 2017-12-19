@@ -22,6 +22,16 @@
 
 // VARIABLES/DATA
 // ==================================================================================================================================
+
+var sectionName = "";
+var activateStart = $("#startSection");
+var activateQuestion = $("#questionSection");
+var activateAnswers = $("#answerSection");
+var activateResults = $("#resultsSection");
+
+var index = 0;
+var questionID; 
+
 // Object to store questions, answer options and correct answer 
 var triviaQuestions = {
     q1: {
@@ -36,12 +46,8 @@ var triviaQuestions = {
     },
 }
 
-var sectionName = ""; 
-var activateStart = $("#startSection");
-var activateQuestion = $("#questionSection");
-var activateAnswers = $("#answerSection");
-var activateResults = $("#resultsSection");
-
+// Creates array of questions for triviaQuestions object
+var questionsArray = [triviaQuestions.q1, triviaQuestions.q2]
 
 // Functions
 //==================================================================================================================================
@@ -51,16 +57,48 @@ function activateSection(sectionName) {
     activateStart.hide();
     activateQuestion.hide();
     activateAnswers.hide();
-    activateResults.hide(); 
+    activateResults.hide();
     // activate only the sectionName section 
     if (sectionName) {
-        sectionName.show(); 
+        sectionName.show();
     }
 }
 
+// Click event function fires when user click on start button to begin game 
+function startClickEvent() {
+    $("#start").on("click", function () {
+        // Reset index to select first question on start
+        index = 0;
+        questionID = questionsArray[index];
+        activateSection(activateQuestion);
+
+        // Display question 
+        $("#question").html(questionID.question);
+
+        // Display answers 
+        for (var i = 0; i < questionID.answers.length; i++) {
+
+            // Create answer option button item
+            var answerOption = $("<button>");
+
+            // Set answer option text to answer in questions array
+            answerOption.html(questionID.answers[i]);
+
+            // Append answer option to the list of answer choices
+            answerOption.appendTo(".answerChoices");
+        }
+    })
+}
+
+// Function to start timer 
+
+
 //==================================================================================================================================
-$(document).ready(function() {
-    activateSection(activateStart)
+$(document).ready(function () {
+    // Display Start section 
+    activateSection(activateStart);
+    // Calls start click even function 
+    startClickEvent();
 
 })
 //==================================================================================================================================
