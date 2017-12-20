@@ -30,9 +30,9 @@ var activateAnswers = $("#answerSection");
 var activateResults = $("#resultsSection");
 
 var index = 0;
-var questionID; 
+var questionID;
 
-var timer = 15; 
+var timer = 15;
 
 
 // Object to store questions, answer options and correct answer 
@@ -96,15 +96,20 @@ function startClickEvent() {
 
 // Function to start timer when questions display on the screen 
 function startTimer() {
-	timeIntervalID = setInterval(displayTimer, 1000);
+    timeIntervalID = setInterval(displayTimer, 1000);
 };
+
+// Function to stop timer
+function stopTimer() {
+    clearInterval(timeIntervalID);
+}
 
 // Function to decrement time when questions display on the screen 
 function displayTimer() {
     timer--;
     $(".time").html(timer);
     if (timer === 0) {
-        clearInterval(timeIntervalID);
+        startTimer();
     }
 }
 
@@ -116,7 +121,7 @@ $(document).ready(function () {
     // Calls start click even function 
     startClickEvent();
 
-    startTimer(); 
+    startTimer();
 
 })
 //==================================================================================================================================
