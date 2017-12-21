@@ -45,6 +45,7 @@ var activateQuestion = $("#questionSection");
 var activateAnswers = $("#answerSection");
 var activateResults = $("#resultsSection");
 
+// variable for question index 
 var questionIndex = 0;
 var questionID;
 // variable for timer 
@@ -128,7 +129,6 @@ function displayQuestionAnswers() {
         // Create answer option button item
         var answerOption = $("<button>");
         answerOption.addClass("btnAnswer");
-        //var answerOption = $("<li>")
 
         // Set answer option text to answer in questions array
         answerOption.html(questionID.answers[i]);
@@ -136,8 +136,25 @@ function displayQuestionAnswers() {
         // Append answer option to the list of answer choices
         answerOption.appendTo(".answerChoices");
     }
+    clickAnswerEvent();
 }
 
+// Fires when user click one of the answer option 
+function clickAnswerEvent() {
+	//$("button").on("click", function () {
+    $("btnAnswer").on("click", function () {
+
+		// Set selected answer to selected list item.
+		var userResponse = $(this).html();
+		console.log(userResponse);
+
+		// Show answer page.
+		//showSection(answerPage);
+
+		// Add answer information
+		// to be coded 
+	})
+}
 
 // Function to decrement time when questions display on the screen 
 function displayTimer() {
