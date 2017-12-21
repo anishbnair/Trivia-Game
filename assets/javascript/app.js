@@ -1,7 +1,6 @@
 // Pseudo code 
 //===============================================================================================================================
 
-// Click Events
 
 // Click event for Start button
 
@@ -28,28 +27,34 @@
 //  
 // Function to stop timer
 //  clear interval 
+
 // Function to reset timer 
-//  reset timer value to 15 seconds
+//  reset timer value by assigning value to timer variable
 //  call starttimer function 
+
 // Function to validate answer selected
 // 
 //=================================================================================================================================
 
 // VARIABLES/DATA
 // ==================================================================================================================================
-
+// variables to activate one active section at a time 
 var sectionName = "";
 var activateStart = $("#startSection");
 var activateQuestion = $("#questionSection");
 var activateAnswers = $("#answerSection");
 var activateResults = $("#resultsSection");
 
-var index = 0;
+var questionIndex = 0;
 var questionID;
-
+// variable for timer 
 var timer = 15;
 
 var correctAnswer = "";
+
+var correctAnswerCount = 0;
+var incorrectAnswerCount = 0;
+var unansweredCount = 0;
 
 
 // Object to store questions, answer options and correct answer 
@@ -84,35 +89,53 @@ function activateSection(sectionName) {
     }
 }
 
-// Click event function fires when user click on start button to begin game 
+// Fires when user click on start button to begin game 
 function startClickEvent() {
     $("#start").on("click", function () {
         // Reset index to select first question on start
-        index = 0;
-        questionID = questionsArray[index];
+        questionIndex = 0;
+        questionID = questionsArray[questionIndex];
         activateSection(activateQuestion);
 
-        // Display question 
-        $("#question").html(questionID.question);
+        // Display
+        displayQuestionAnswers();
+
+        // Start timer 
         startTimer();
 
-        // Display answers 
+        // Reset correct answer counter to 0
+        correctAnswerCount = 0;
 
-        for (var i = 0; i < questionID.answers.length; i++) {
+        // Reset incorrect answer counter to 0
+        incorrectAnswerCount = 0;
 
-            // Create answer option button item
-            var answerOption = $("<button>");
-            answerOption.addClass("btnAnswer");
-            //var answerOption = $("<li>")
+        // Reset unanswered counter to 0 
+        unansweredCount = 0;
 
-
-            // Set answer option text to answer in questions array
-            answerOption.html(questionID.answers[i]);
-
-            // Append answer option to the list of answer choices
-            answerOption.appendTo(".answerChoices");
-        }
     })
+}
+
+// Function to diplay question and answer options 
+
+function displayQuestionAnswers() {
+    
+    // Display question 
+    $("#question").html(questionID.question);
+
+    // Display answer options 
+    for (var i = 0; i < questionID.answers.length; i++) {
+
+        // Create answer option button item
+        var answerOption = $("<button>");
+        answerOption.addClass("btnAnswer");
+        //var answerOption = $("<li>")
+
+        // Set answer option text to answer in questions array
+        answerOption.html(questionID.answers[i]);
+
+        // Append answer option to the list of answer choices
+        answerOption.appendTo(".answerChoices");
+    }
 }
 
 
@@ -147,7 +170,7 @@ $(document).ready(function () {
     // Display Start section 
     activateSection(activateStart);
     // Calls start click even function 
-    startClickEvent();  
+    startClickEvent();
 
 })
 //==================================================================================================================================
