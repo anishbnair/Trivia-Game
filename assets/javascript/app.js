@@ -3,6 +3,7 @@
 
 
 // Click event for Start button
+//  inc
 
 // Click event when user choose an answer option
 //  user click on answer choice 
@@ -51,7 +52,7 @@ var questionID;
 // variable for timer 
 var timer = 15;
 
-var correctAnswer = "";
+//var correctAnswer = "";
 
 var correctAnswerCount = 0;
 var incorrectAnswerCount = 0;
@@ -93,10 +94,10 @@ function activateSection(sectionName) {
 // Fires when user click on start button to begin game 
 function startClickEvent() {
     $("#start").on("click", function () {
-        // Reset index to select first question on start
         // test =============
         console.log("Clicked on start button");
         // test ends 
+        // Reset index to select first question on start
         questionIndex = 0;
         questionID = questionsArray[questionIndex];
         activateSection(activateQuestion);
@@ -154,10 +155,41 @@ function clickAnswerEvent() {
 
         // Show answer page.
         //showSection(answerPage);
+        activateSection(activateAnswers);
 
         // Add answer information
-        // to be coded 
+        displayAnswerAnalysis(userResponse);
     })
+}
+
+// Function to compare correct answer with user selected option and display correct answer on the screen
+function displayAnswerAnalysis(userResponse) {
+    stopTimer();
+    // Store correct answer to a variable 
+    var ctAnswer = questionID.correctAnswer;
+    console.log("Correct answer is " + ctAnswer);
+
+    // Display correct answer on the screen 
+    $("#correctAnswerInfo").html("The correct Answer was: " + ctAnswer);
+    
+    // Compare answers
+    if (userResponse === ctAnswer) {
+        // Empty 
+        $("#correctAnswerInfo").empty(); 
+        // Increment correct answer counter
+        correctAnswerCount++; 
+        // 
+        $("#answerAssessment").html("You are correct!");
+
+    } else if (userResponse === false) {
+        // increment unanswered counter
+        incorrectAnswerCount++;
+        $("#answerAssessment").html("Sorry, out of time!");
+
+    } else {
+        incorrectAnswerCount++;
+        $("#answerAssessment").html("Sorry, better luck next time!");
+    }
 }
 
 // Function to display timer on the screen 
