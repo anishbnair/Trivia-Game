@@ -94,6 +94,9 @@ function activateSection(sectionName) {
 function startClickEvent() {
     $("#start").on("click", function () {
         // Reset index to select first question on start
+        // test =============
+        console.log("Clicked on start button");
+        // test ends 
         questionIndex = 0;
         questionID = questionsArray[questionIndex];
         activateSection(activateQuestion);
@@ -119,7 +122,7 @@ function startClickEvent() {
 // Function to diplay question and answer options 
 
 function displayQuestionAnswers() {
-    
+
     // Display question 
     $("#question").html(questionID.question);
 
@@ -141,22 +144,23 @@ function displayQuestionAnswers() {
 
 // Fires when user click one of the answer option 
 function clickAnswerEvent() {
-	//$("button").on("click", function () {
-    $("btnAnswer").on("click", function () {
+    //$("button").on("click", function () {        
+    $(".btnAnswer").on("click", function () {
+        console.log("User clicked on answer button");
 
-		// Set selected answer to selected list item.
-		var userResponse = $(this).html();
-		console.log(userResponse);
+        // Set selected answer to selected list item.
+        var userResponse = $(this).html();
+        console.log(userResponse);
 
-		// Show answer page.
-		//showSection(answerPage);
+        // Show answer page.
+        //showSection(answerPage);
 
-		// Add answer information
-		// to be coded 
-	})
+        // Add answer information
+        // to be coded 
+    })
 }
 
-// Function to decrement time when questions display on the screen 
+// Function to display timer on the screen 
 function displayTimer() {
     timer--;
     $(".time").html(timer);
