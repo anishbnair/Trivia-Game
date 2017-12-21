@@ -4,20 +4,35 @@
 // Click Events
 
 // Click event for Start button
+
 // Click event when user choose an answer option
+//  user click on answer choice 
+//  stop timer 
+//  store the answer choice to a variable
+//  get the correct answer and store it a variable 
+//  compare the answers
+//  if user guess is correct, diplay your answer is correct, increment correct answer count and display next question
+//  if user guess is incorrect, display your answer is incorrect, increment wrong answer count and diplay next question
+
+// 
 // Click event when user selects 'Start Over' button at the end of the game 
 
 // Functions 
 
-// 1. Function to display one active section at a time
+// Function to display one active section at a time
 //  hide all sections 
 //  activate only the section which is passed to the function 
 
 // Function to display question and answers
 // Function to start timer
+//  
 // Function to stop timer
+//  clear interval 
 // Function to reset timer 
+//  reset timer value to 15 seconds
+//  call starttimer function 
 // Function to validate answer selected
+// 
 //=================================================================================================================================
 
 // VARIABLES/DATA
@@ -33,6 +48,8 @@ var index = 0;
 var questionID;
 
 var timer = 15;
+
+var correctAnswer = "";
 
 
 // Object to store questions, answer options and correct answer 
@@ -77,12 +94,17 @@ function startClickEvent() {
 
         // Display question 
         $("#question").html(questionID.question);
+        startTimer();
 
         // Display answers 
+
         for (var i = 0; i < questionID.answers.length; i++) {
 
             // Create answer option button item
             var answerOption = $("<button>");
+            answerOption.addClass("btnAnswer");
+            //var answerOption = $("<li>")
+
 
             // Set answer option text to answer in questions array
             answerOption.html(questionID.answers[i]);
@@ -94,23 +116,29 @@ function startClickEvent() {
 }
 
 
+// Function to decrement time when questions display on the screen 
+function displayTimer() {
+    timer--;
+    $(".time").html(timer);
+    if (timer === 0) {
+        stopTimer();
+    }
+}
+
 // Function to start timer when questions display on the screen 
 function startTimer() {
     timeIntervalID = setInterval(displayTimer, 1000);
-};
+}
 
 // Function to stop timer
 function stopTimer() {
     clearInterval(timeIntervalID);
 }
 
-// Function to decrement time when questions display on the screen 
-function displayTimer() {
-    timer--;
-    $(".time").html(timer);
-    if (timer === 0) {
-        startTimer();
-    }
+// Function to reset timer
+function resetTimer() {
+    timer = 15;
+    startTimer();
 }
 
 
@@ -119,9 +147,7 @@ $(document).ready(function () {
     // Display Start section 
     activateSection(activateStart);
     // Calls start click even function 
-    startClickEvent();
-
-    startTimer();
+    startClickEvent();  
 
 })
 //==================================================================================================================================
