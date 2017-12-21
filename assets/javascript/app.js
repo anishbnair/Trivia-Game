@@ -64,7 +64,7 @@ var triviaQuestions = {
     q1: {
         question: "Who played Lord Voldemort in the movies?",
         answers: ["JEREMY IRONS", "TOM HIDDLESTON", "GARY OLDMAN", "RALPH FIENNES"],
-        correctAnswer: "RALPH FIENES",
+        correctAnswer: "RALPH FIENNES",
     },
     q2: {
         question: "Who played Ron Weasley in the movies?",
@@ -168,6 +168,7 @@ function displayAnswerAnalysis(userResponse) {
     // Store correct answer to a variable 
     var ctAnswer = questionID.correctAnswer;
     console.log("Correct answer is " + ctAnswer);
+    console.log("User selected answer is " + userResponse);
 
     // Display correct answer on the screen 
     $("#correctAnswerInfo").html("The correct Answer was: " + ctAnswer);
@@ -175,7 +176,7 @@ function displayAnswerAnalysis(userResponse) {
     // Compare answers
     if (userResponse === ctAnswer) {
         // Empty 
-        $("#correctAnswerInfo").empty(); 
+        //$("#correctAnswerInfo").empty(); 
         // Increment correct answer counter
         correctAnswerCount++; 
         // 
