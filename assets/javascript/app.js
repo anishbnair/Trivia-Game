@@ -34,7 +34,9 @@
 //  call starttimer function 
 
 // Function to validate answer selected
-// 
+// Funtion for timeout
+//  if there is another question display it
+//  else show the results 
 //=================================================================================================================================
 
 // VARIABLES/DATA
@@ -131,7 +133,7 @@ function displayQuestionAnswers() {
     for (var i = 0; i < questionID.answers.length; i++) {
 
         // Create answer option button item
-        var answerOption = $("<button>");
+        var answerOption = $("<br> <button> </br>");
         answerOption.addClass("btnAnswer");
 
         // Set answer option text to answer in questions array
@@ -176,7 +178,7 @@ function displayAnswerAnalysis(userResponse) {
     // Compare answers
     if (userResponse === ctAnswer) {
         // Empty 
-        //$("#correctAnswerInfo").empty(); 
+        $("#correctAnswerInfo").empty(); 
         // Increment correct answer counter
         correctAnswerCount++; 
         // 
@@ -225,6 +227,5 @@ $(document).ready(function () {
     activateSection(activateStart);
     // Calls start click even function 
     startClickEvent();
-
 })
 //==================================================================================================================================
