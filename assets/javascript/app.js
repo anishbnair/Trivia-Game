@@ -85,7 +85,7 @@ var triviaQuestions = {
     q5: {
         question: "Harry Potter's wand has what kind of core?",
         answers: ["UNICORN TAIL HAIR", "DRAGON HEARTSTRING", "VEELA HAIR", "PHOENIX FEATHER"],
-        correctAnswer: "RUPERT GRINT",
+        correctAnswer: "PHOENIX FEATHER",
     },    
 }
 
