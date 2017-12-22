@@ -209,7 +209,7 @@ function displayTimer() {
     }
 }
 
-// Function to display next question and check if all questions are displayed 
+// Function to call next question
 function nextQuestion() {
 
     // Display next question if any 
@@ -234,6 +234,14 @@ function nextQuestion() {
     }
 }
 
+// Function to display score at the end of the game
+function gameScore() {
+    // Display results section 
+    activateSection(activateResults);
+    $("#correctAnswers").html(correctAnswerCount);
+    $("#incorrectAnswers").html(incorrectAnswerCount);
+    $("#unanswered").html(unansweredCount);
+}
 
 // Function to start timer when questions display on the screen 
 function startTimer() {
