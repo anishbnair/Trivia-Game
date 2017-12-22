@@ -203,7 +203,7 @@ function displayTimer() {
     if (timer === 0) {
         //stopTimer();
         activateSection(activateAnswers);
-        unansweredCount++; 
+        unansweredCount++;
         userResponse = 0;
         displayAnswerAnalysis(userResponse);
     }
@@ -243,6 +243,25 @@ function gameScore() {
     $("#unanswered").html(unansweredCount);
 }
 
+// Function to restart game when user click on 'Start Over?' button
+function restartClickEvent() {
+    $("#restart").on("click", function () {
+        $(".answerChoices").empty();
+        resetTimer();
+        // Reset correct answer counter to 0
+        correctAnswerCount = 0;
+        // Reset incorrect answer counter to 0
+        incorrectAnswerCount = 0;
+        // Reset unanswered counter to 0 
+        unansweredCount = 0;
+        questionIndex = 0;
+        questionID = questionsArray[questionIndex];
+        activateSection(activateQuestion);
+        // Display
+        displayQuestionAnswers();
+    });
+}
+
 // Function to start timer when questions display on the screen 
 function startTimer() {
     timeIntervalID = setInterval(displayTimer, 1000);
@@ -259,12 +278,14 @@ function resetTimer() {
     startTimer();
 }
 
-
 //==================================================================================================================================
 $(document).ready(function () {
     // Display Start section 
     activateSection(activateStart);
-    // Calls start click even function 
+    // Fires when user click on Start button 
     startClickEvent();
+    // Fires when user click on 'Start Over?' button
+    restartClickEvent();
+
 })
 //==================================================================================================================================
