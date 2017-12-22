@@ -54,8 +54,7 @@ var questionID;
 // variable for timer 
 var timer = 15;
 
-//var correctAnswer = "";
-
+// variables for counters to track score
 var correctAnswerCount = 0;
 var incorrectAnswerCount = 0;
 var unansweredCount = 0;
@@ -174,25 +173,27 @@ function displayAnswerAnalysis(userResponse) {
 
     // Display correct answer on the screen 
     $("#correctAnswerInfo").html("The correct Answer was: " + ctAnswer);
-    
+
     // Compare answers
     if (userResponse === ctAnswer) {
         // Empty 
-        $("#correctAnswerInfo").empty(); 
+        $("#correctAnswerInfo").empty();
         // Increment correct answer counter
-        correctAnswerCount++; 
+        correctAnswerCount++;
         // 
         $("#answerAssessment").html("You are correct!");
 
-    } else if (userResponse === false) {
+    } else if (userResponse === 0) {
         // increment unanswered counter
-        incorrectAnswerCount++;
+        // unansweredCount++;
         $("#answerAssessment").html("Sorry, out of time!");
 
     } else {
         incorrectAnswerCount++;
         $("#answerAssessment").html("Sorry, better luck next time!");
     }
+    // Length of time to display answer analysis section 
+    setTimeout(timeOver, 5000);
 }
 
 // Function to display timer on the screen 
@@ -200,9 +201,14 @@ function displayTimer() {
     timer--;
     $(".time").html(timer);
     if (timer === 0) {
-        stopTimer();
+        //stopTimer();
+        activateSection(activateAnswers);
+        unansweredCount++; 
+        userResponse = 0;
+        displayAnswerAnalysis(userResponse);
     }
 }
+
 
 // Function to start timer when questions display on the screen 
 function startTimer() {
