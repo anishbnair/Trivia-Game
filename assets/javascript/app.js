@@ -193,7 +193,7 @@ function displayAnswerAnalysis(userResponse) {
         $("#answerAssessment").html("Sorry, better luck next time!");
     }
     // Length of time to display answer analysis section 
-    setTimeout(timeOver, 5000);
+    setTimeout(nextQuestion, 5000);
 }
 
 // Function to display timer on the screen 
@@ -206,6 +206,31 @@ function displayTimer() {
         unansweredCount++; 
         userResponse = 0;
         displayAnswerAnalysis(userResponse);
+    }
+}
+
+// Function to display next question and check if all questions are displayed 
+function nextQuestion() {
+
+    // Display next question if any 
+    if (questionIndex < questionsArray.length - 1) {
+        questionIndex++;
+        questionID = questionsArray[questionIndex];
+        // Go to next question
+        // Display question section 
+        activateSection(activateQuestion);
+        // Empties out existing answers from previous question
+        $(".answerChoices").empty();
+
+        // Displays question and possible answers
+        displayQuestionAnswers();
+
+        // Resets question timer.
+        resetTimer();
+
+    } else {
+        //showresults function if no more questions to display 
+        gameScore();
     }
 }
 
