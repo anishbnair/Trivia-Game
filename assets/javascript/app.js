@@ -63,19 +63,34 @@ var unansweredCount = 0;
 // Object to store questions, answer options and correct answer 
 var triviaQuestions = {
     q1: {
+        question: "From what King's Cross platform does the Hogwarts Express leave?",
+        answers: ["NINE AND THREE QUARTER", "EIGHT AND ONE QUARTER", "FIVE AND A HALF", "SIX AND THREE EIGHTHS"],
+        correctAnswer: "NINE AND THREE QUARTER",
+    },
+    q2: {
         question: "Who played Lord Voldemort in the movies?",
         answers: ["JEREMY IRONS", "TOM HIDDLESTON", "GARY OLDMAN", "RALPH FIENNES"],
         correctAnswer: "RALPH FIENNES",
     },
-    q2: {
+    q3: {
+        question: "What is the name of the spell used to ward off Dementors?",
+        answers: ["ALARTE ASCENDARE", "CONFUNDUS CHARM", "PATRONUS CHARM", "LOCOMOTOR MORTIS"],
+        correctAnswer: "PATRONUS CHARM",
+    },
+    q4: {
         question: "Who played Ron Weasley in the movies?",
         answers: ["KIERAN CULKIN", "RUPERT GRINT", "TYLER HOECHLIN", "DANIEL RADCLIFFE"],
         correctAnswer: "RUPERT GRINT",
     },
+    q5: {
+        question: "Harry Potter's wand has what kind of core?",
+        answers: ["UNICORN TAIL HAIR", "DRAGON HEARTSTRING", "VEELA HAIR", "PHOENIX FEATHER"],
+        correctAnswer: "RUPERT GRINT",
+    },    
 }
 
 // Creates array of questions for triviaQuestions object
-var questionsArray = [triviaQuestions.q1, triviaQuestions.q2]
+var questionsArray = [triviaQuestions.q1, triviaQuestions.q2, triviaQuestions.q3, triviaQuestions.q4, triviaQuestions.q5]
 
 // Functions
 //==================================================================================================================================
@@ -286,6 +301,5 @@ $(document).ready(function () {
     startClickEvent();
     // Fires when user click on 'Start Over?' button
     restartClickEvent();
-
 })
 //==================================================================================================================================
