@@ -36,6 +36,11 @@ button {
 	color: black;
 	border: none;
 	background: gold;
+	border-radius: 12px;
+}
+
+.btnAnswer {
+	margin:8px;
 }
 
 #correctAnswerInfo,
