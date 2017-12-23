@@ -77,7 +77,7 @@ var triviaQuestions = {
     q4: {
         question: "Who played Ron Weasley in the movies?",
         answers: ["Kieran Culkin", "Rupert Grint", "Tyler Hoechlin", "Daniel Radcliffe"],
-        correctAnswer: "RUPERT GRINT",
+        correctAnswer: "Rupert Grint",
     },
     q5: {
         question: "Harry Potter's wand has what kind of core?",
@@ -153,6 +153,12 @@ function displayQuestionAnswers() {
         // Append answer option to the list of answer choices
         answerOption.appendTo(".answerChoices");
     }
+    $(".btnAnswer").hover(function () {
+		$(this).addClass("hover");
+	}, function () {
+		$(this).removeClass("hover");
+	}
+	);
     clickAnswerEvent();
 }
 
