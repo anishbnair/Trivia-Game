@@ -12,11 +12,6 @@ header {
 
 }
 
-.hover {
-	background-color: #ccc;
-	margin-right: 3%;
-}
-
 section {
 	background-color: opacity;
 	font-size: 20px;
@@ -43,13 +38,17 @@ button {
 	margin:8px;
 }
 
+.btnAnswer:hover {
+    color: red;
+}
+
 #correctAnswerInfo,
 #answerAssessment {
 	margin-top: 1%;
 }
 
 #start {
-	margin-top: 24%;
+	margin-top: 10%;
 }
 
 #restart {
