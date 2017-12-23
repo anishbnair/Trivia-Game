@@ -42,6 +42,9 @@ button {
     color: red;
 } */
 
+.hover {
+	background-color: greenyellow;
+}
 
 
 #correctAnswerInfo,
