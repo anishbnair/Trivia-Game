@@ -1,10 +1,7 @@
 // Pseudo code 
 //===============================================================================================================================
-
-
 // Click event for Start button
-//  inc
-
+// 
 // Click event when user choose an answer option
 //  user click on answer choice 
 //  stop timer 
@@ -208,7 +205,7 @@ function displayAnswerAnalysis(userResponse) {
         $("#answerAssessment").html("Sorry, better luck next time!");
     }
     // Length of time to display answer analysis section 
-    setTimeout(nextQuestion, 5000);
+    setTimeout(nextQuestion, 3000);
 }
 
 // Function to display timer on the screen 
