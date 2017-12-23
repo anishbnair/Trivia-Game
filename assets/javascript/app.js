@@ -64,28 +64,28 @@ var unansweredCount = 0;
 var triviaQuestions = {
     q1: {
         question: "From what King's Cross platform does the Hogwarts Express leave?",
-        answers: ["NINE AND THREE QUARTER", "EIGHT AND ONE QUARTER", "FIVE AND A HALF", "SIX AND THREE EIGHTHS"],
-        correctAnswer: "NINE AND THREE QUARTER",
+        answers: ["Nine and Three Quarter", "Eight and One Quarter", "Five and a Half", "Six and Three Eighths"],
+        correctAnswer: "Nine and Three Quarter",
     },
     q2: {
         question: "Who played Lord Voldemort in the movies?",
-        answers: ["JEREMY IRONS", "TOM HIDDLESTON", "GARY OLDMAN", "RALPH FIENNES"],
-        correctAnswer: "RALPH FIENNES",
+        answers: ["Jeremy Irons", "Tom Hiddleston", "Gary Oldman", "Ralph Fiennes"],
+        correctAnswer: "Ralph Fiennes",
     },
     q3: {
         question: "What is the name of the spell used to ward off Dementors?",
-        answers: ["ALARTE ASCENDARE", "CONFUNDUS CHARM", "PATRONUS CHARM", "LOCOMOTOR MORTIS"],
-        correctAnswer: "PATRONUS CHARM",
+        answers: [" Alarte Ascendare", "Confundus Charm", "Patronus Charm", "Locomotor Mortis"],
+        correctAnswer: "Patronus Charm",
     },
     q4: {
         question: "Who played Ron Weasley in the movies?",
-        answers: ["KIERAN CULKIN", "RUPERT GRINT", "TYLER HOECHLIN", "DANIEL RADCLIFFE"],
+        answers: ["Kieran Culkin", "Rupert Grint", "Tyler Hoechlin", "Daniel Radcliffe"],
         correctAnswer: "RUPERT GRINT",
     },
     q5: {
         question: "Harry Potter's wand has what kind of core?",
-        answers: ["UNICORN TAIL HAIR", "DRAGON HEARTSTRING", "VEELA HAIR", "PHOENIX FEATHER"],
-        correctAnswer: "PHOENIX FEATHER",
+        answers: ["Unicorn Tail Hair", "Dragon Heartstrig", "Veela Hair", "Phoenix Feather"],
+        correctAnswer: "Phoenix Feather",
     },    
 }
 
