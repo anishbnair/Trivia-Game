@@ -50,6 +50,10 @@ button {
 	background: greenyellow;
 }
 
+#restart:hover {
+	background: greenyellow;
+}
+
 #correctAnswerInfo,
 #answerAssessment {
 	margin-top: 1%;
