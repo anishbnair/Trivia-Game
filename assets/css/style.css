@@ -46,6 +46,9 @@ button {
 	background-color: greenyellow;
 }
 
+#start:hover {
+	background: greenyellow;
+}
 
 #correctAnswerInfo,
 #answerAssessment {
